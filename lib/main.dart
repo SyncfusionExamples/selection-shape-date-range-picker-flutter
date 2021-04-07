@@ -20,21 +20,13 @@ class SelectionShapeInPicker extends StatefulWidget {
   State<StatefulWidget> createState() => PickerState();
 }
 
-List<String> views = <String>['Month', 'Year', 'Decade', 'Century'];
-
 class PickerState extends State<SelectionShapeInPicker> {
-  DateRangePickerController _controller;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _controller = DateRangePickerController();
-    super.initState();
-  }
+  final DateRangePickerController _controller = DateRangePickerController();
+  final List<String> views = <String>['Month', 'Year', 'Decade', 'Century'];
 
   @override
   Widget build(BuildContext context) {
-    return (Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leading: PopupMenuButton<String>(
           icon: Icon(Icons.calendar_today),
@@ -65,6 +57,6 @@ class PickerState extends State<SelectionShapeInPicker> {
             selectionMode: DateRangePickerSelectionMode.range,
             allowViewNavigation: false,
           )),
-    ));
+    );
   }
 }
